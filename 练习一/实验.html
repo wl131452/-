@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript基础练习</title>
+    <style>
+        #select img{
+            width: 1000px;
+            height: 600px;
+        }
+        #img img{
+            width: 800px;
+            height: 400px;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="select">
+        <button onclick="myFunction()">选择类型</button>
+        <img id="A" src="img1.png" alt="图片1" style="display:none;">
+        <img id="B" src="img2.png" alt="图片2" style="display:none;">
+        <audio id="M" src="我们的时光.mp3" controls style="display:none;"></audio>
+    </div>
+
+    <div id="img">
+        <input type="text" id="imgnum" value="101" style="display:none;">
+        <img id="0" style="display:inline;" src="1.jpg" alt="图片1">
+        <img id="1" style="display:none;" src="2.jpg" alt="图片2">
+        <img id="2" style="display:none;" src="3.jpg" alt="图片3">
+        <img id="3" style="display:none;" src="4.jpg" alt="图片4">
+    </div>
+
+    <div id="button">
+        <button onclick="previous()" value="上一张">上一张</button>
+        <button onclick="next()" value="下一张">下一张</button>
+    </div>
+    <script>
+        function myFunction() {
+            var n=prompt("请输入‘A’或‘B’或‘M’");
+            // n=String(n);
+            switch (n) {
+                case 'A':document.getElementById("A").style.display='inline';break;
+                case 'B':document.getElementById("B").style.display='inline';break;
+                case 'M':
+                    x=document.getElementById("M");
+                    x.style.display='inline';
+                    x.autoplay=true;
+                    x.load();
+                    break;
+                default:alert("你输错啦~");break;
+            }
+        }
+        function next() {
+            var n=Number(document.getElementById("imgnum").value);
+            m=n%4;
+            document.getElementById(m).style.display="none";
+            n=n+1;
+            m=n%4;
+            document.getElementById(m).style.display="inline";
+            document.getElementById("imgnum").value=n
+        }
+        function previous() {
+            var n=Number(document.getElementById("imgnum").value);
+            m=n%4;
+            document.getElementById(m).style.display="none";
+            n=n-1;
+            m=n%4;
+            document.getElementById(m).style.display="inline";
+            document.getElementById("imgnum").value=n
+        }
+    </script>
+</body>
+</html>

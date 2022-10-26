@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var a =prompt("请输入一个数字","必须是数字！");
+if(a==null)
+{
+    
+}
+else
+{
+    var b = isNaN(a);
+    if(b==false)
+    {
+        var c = parseInt(a);
+        var sum=0;
+        for(var i=0;i<=c;i++)
+        {
+            sum+=i;
+        }
+        document.write(sum);
+    }
+    else
+    {
+        alert("输入有误！");    
+    }
+}
+</script>
+</head>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<img src="" alt="" id="img"><br>
+<audio controls height="100" width="100">
+  <source src="" type="audio/mpeg" id="son"><br>
+</audio>
+<button type="button" id="btg">转换</button>
+<br>用户名（3到6位字母数字的组合）：<input type="text" id="username"/><br>
+<br>电话号码(6位数字):<input type="text" value="" id="tel"><br>
+<button type="button" id="bt">录入</button>
+<script>
+    var a = prompt("请输入");
+    var son1=document.getElementById('son');
+    var btg1= document.getElementById('btg');
+        var img1 = document.getElementById('img');
+        if (a == null) {
+
+        }
+        else {
+            var b = isNaN(a);
+            if (b == false) {
+                var c = parseInt(a);
+                var sum = 0;
+                for (var i = 0; i <= c; i++) {
+                    sum += i;
+                }
+                alert(sum);
+            }
+            else {
+                if (a == "A") {
+                    img1.src = "https://upload-bbs.mihoyo.com/upload/2021/04/22/275992768/3a19a6ed31f5bae581124b3e17695e74_8872156068811817739.jpg";
+                    img1.alt = "A";
+                }
+                else if (a == "B") {
+                    img1.src = "https://upload-bbs.mihoyo.com/upload/2021/03/02/275273735/5488ac64d2155a5d57a1c98b10bfe109_8787370827545490755.jpg";
+                    img1.alt = "B";
+                }
+                else
+                {
+                    son1.src="周林枫 - 镜中渊.mp3";
+                }
+
+            }
+
+    }
+    var abt=document.getElementById("bt");
+function userJudge(){
+	var userN = document.getElementById("username");
+	var regs = /^[a-zA-Z0-9]{3,6}$/;
+	var reg = new RegExp(regs);
+	var result = reg.test(userN.value);
+	return result;
+	}
+function telJudge(){
+	var phone = document.getElementById("tel");
+	var regs = /^[0-9]{6}$/;
+	var reg = new RegExp(regs);
+	var result = reg.test(phone.value);
+	return result;
+}
+abt.onclick=function () {
+    if(telJudge()==true&&userJudge()==true)
+    {
+        alert("录入正确");
+    }
+    else
+    {
+        alert("录入错误");
+    }
+}
+btg1.onclick=function () {
+    if(a=="A")
+    {
+        img1.src = "https://upload-bbs.mihoyo.com/upload/2021/03/02/275273735/5488ac64d2155a5d57a1c98b10bfe109_8787370827545490755.jpg";
+        img1.alt = "B";
+        a="B"
+    }
+    else
+    {
+         img1.src = "https://upload-bbs.mihoyo.com/upload/2021/04/22/275992768/3a19a6ed31f5bae581124b3e17695e74_8872156068811817739.jpg";
+                    img1.alt = "A";
+                    a="A";
+    }
+}
+</script>
+
+</body>
+</html>
